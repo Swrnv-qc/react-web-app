@@ -1,16 +1,21 @@
 // Signup.js
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { signupUser } from '../redux/actions/authActions';
+// import { useDispatch } from 'react-redux';
+// import { signupUser } from '../redux/actions/authActions';
 
-const Signup = () => {
-  const dispatch = useDispatch();
+const Signup = ({ signupUser }) => {
+    const navigate = useNavigate();
+//   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [name, setName] = useState('');
 
   const handleSignup = () => {
-    dispatch(signupUser({ username, name }));
-    // Add redirection logic or any other action after signup
+    // Assuming signupUser is a redux action
+    signupUser({ username, name }).then(() => {
+      // After successful signup, redirect to the task page
+      navigate('/task');
+    });
   };
 
   return (

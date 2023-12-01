@@ -9,7 +9,6 @@ const Login = () => {
 
   const handleLogin = () => {
     dispatch(loginUser({ username }));
-    // Add redirection logic or any other action after login
   };
 
   return (

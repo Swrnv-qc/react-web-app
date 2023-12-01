@@ -11,9 +11,7 @@ const Signup = ({ signupUser }) => {
   const [name, setName] = useState('');
 
   const handleSignup = () => {
-    // Assuming signupUser is a redux action
     signupUser({ username, name }).then(() => {
-      // After successful signup, redirect to the task page
       navigate('/task');
     });
   };
